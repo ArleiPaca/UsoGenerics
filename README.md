@@ -31,3 +31,33 @@ Você pode encontrar avisos de tipo não verificado em tempo de compilação ao 
 
 6. Desempenho
 Embora os genéricos não adicionem overhead em termos de desempenho em tempo de execução devido ao apagamento de tipos, a conversão de tipos (casting) e o uso de classes wrapper para tipos primitivos podem introduzir alguma sobrecarga.
+
+QUANDO EU DEVO USAR?
+Quando Usar Generics:
+1 Segurança de Tipo: Use generics para garantir que coleções e outras estruturas de dados contenham apenas objetos de um tipo específico. Isso evita erros de tipo em tempo de execução.
+
+List<String> stringList = new ArrayList<>();
+stringList.add("Olá");
+
+2 Reutilização de Código: Quando você tem algoritmos ou classes que podem operar em diferentes tipos de dados, usar generics torna o código mais reutilizável.
+
+public class Box<T> {
+    private T value;
+    public void set(T value) { this.value = value; }
+    public T get() { return value; }
+}
+
+
+3 Consistência: Para garantir que o tipo de dados que você está manipulando seja consistente em toda a aplicação.
+
+4 Bibliotecas e APIs: Ao criar bibliotecas ou APIs que devem ser usadas com diferentes tipos de dados, os generics oferecem flexibilidade sem sacrificar a segurança de tipo.
+
+5 Classes de Utilidade: Em classes de utilidade onde operações semelhantes podem ser aplicadas a diferentes tipos de dados.
+
+public class Util {
+    public static <T> void printArray(T[] array) {
+        for (T element : array) {
+            System.out.println(element);
+        }
+    }
+}
